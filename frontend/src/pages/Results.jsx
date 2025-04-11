@@ -3,12 +3,16 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeftIcon, HomeIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 
+// Get the API URL from environment variables
+const API_URL = import.meta.env.VITE_API_URL;
+
 const handleError = (error, context) => {
-  // In development, we can still see errors
-  if (process.env.NODE_ENV === 'development') {
-    console.error(`${context}:`, error);
+  console.error(`${context}:`, error);
+  if (error.response) {
+    console.error('Server Error:', error.response.data);
+  } else if (error.request) {
+    console.error('Network Error:', error.request);
   }
-  // Here you could also implement proper error tracking/logging service
 };
 
 function Results() {
@@ -41,19 +45,22 @@ function Results() {
         let endpoints = [];
         if (activeTab === "hotels") {
           endpoints = selectedCategory === "all" 
-            ? ["/api/hotels", "/api/restaurants"]
-            : [`/api/${selectedCategory}s`];
+            ? [`${API_URL}/api/hotels`, `${API_URL}/api/restaurants`]
+            : [`${API_URL}/api/${selectedCategory}s`];
         } else {
           endpoints = selectedCategory === "all"
-            ? ["/api/activities", "/api/malls"]
-            : [`/api/${selectedCategory === "activity" ? "activities" : "malls"}`];
+            ? [`${API_URL}/api/activities`, `${API_URL}/api/malls`]
+            : [`${API_URL}/api/${selectedCategory === "activity" ? "activities" : "malls"}`];
         }
 
         const responses = await Promise.all(
           endpoints.map(endpoint =>
-            axios.get(endpoint, { params }).catch(error => {
-              handleError(error, `Fetching from ${endpoint}`);
-              return { data: [] };
+            axios.get(endpoint, { 
+              params,
+              withCredentials: true,
+              headers: {
+                'Accept': 'application/json'
+              }
             })
           )
         );
