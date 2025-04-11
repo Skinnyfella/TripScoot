@@ -1,0 +1,93 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: theme('colors.background');
+  color: white;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* New Animations */
+@keyframes titleEntry {
+  from { opacity: 0; transform: scale(0.95) translateY(-20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes searchBoxEntry {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes inputAppear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes tabContentEnter {
+  from { opacity: 0; transform: translateX(100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes listItemEnter {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.title-animation {
+  animation: titleEntry 0.8s ease-out;
+}
+
+.search-box-animation {
+  animation: searchBoxEntry 0.6s ease-out 0.4s both;
+}
+
+.input-animation {
+  animation: inputAppear 0.6s ease-out 0.8s both;
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.tap-scale:active {
+  transform: scale(0.95);
+}
+
+/* Updated Tab Content Animation for smooth transition */
+.tab-content-animation {
+  animation: tabContentEnter 0.3s ease-out;
+}
+
+.list-item-animation {
+  animation: listItemEnter 0.3s ease-out;
+  animation-fill-mode: backwards;
+}
