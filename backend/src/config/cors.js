@@ -5,7 +5,8 @@ const allowedOrigins = [
   'http://localhost:5173',  // Local development
   'http://localhost:4173',  // Local preview
   'https://tripscout.vercel.app',  // Add your production frontend URL here
-  'https://tripscout.netlify.app'  // Add any other deployment URLs here
+  'https://tripscout.netlify.app',  // Add any other deployment URLs here
+  'https://trip-scout-onggvdu18-skinnyfellas-projects.vercel.app'  // New Vercel deployment
 ];
 
 export const corsOptions = {
