@@ -1,157 +1,148 @@
-TripScout
-Discover hotels, restaurants, and fun activities near you with TripScout, a location-based travel exploration app.
-Table of Contents
-Overview (#overview)
+# 🌍 TripScout - Discover Your Next Adventure
 
-Features (#features)
+TripScout is a modern web application that helps travelers and locals discover exciting places around them. With a sleek glass-morphic design and intuitive interface, users can easily find hotels, restaurants, and fun activities in any location.
 
-Tech Stack (#tech-stack)
 
-Installation (#installation)
+## ✨ Features
 
-Usage (#usage)
+- 🎯 Intuitive location-based search
+- 🗺️ Automatic GPS location detection
+- 🏨 Find nearby hotels and accommodations
+- 🍽️ Discover local restaurants and eateries
+- 🎪 Explore entertainment venues and activities
+- 🛍️ Locate shopping centers and malls
+- 🎨 Modern glass-morphic UI design
+- 📱 Fully responsive on all devices
+- ⚡ Fast and efficient with caching
+- 🔒 Secure API with rate limiting
 
-API Integration (#api-integration)
+## 🛠️ Technology Stack
 
-Contributing (#contributing)
+### Frontend
+- **React 18** - Latest React features
+- **Vite** - Next generation frontend tooling
+- **TailwindCSS** - Utility-first CSS framework
+- **Framer Motion** - Animation library
+- **Axios** - HTTP client
+- **React Router** - Navigation
+- **Heroicons** - Beautiful icons
 
-License (#license)
+### Backend
+- **Node.js** - JavaScript runtime
+- **Express** - Web framework
+- **Winston** - Logging
+- **Node-Cache** - Memory caching
+- **CORS** - Cross-Origin Resource Sharing
+- **Helmet** - Security headers
+- **Rate Limiting** - API protection
 
-Contact (#contact)
+## 🚀 Live Demo
 
-Overview
-TripScout is a web application that helps users find nearby hotels, restaurants, malls, and leisure activities based on their location. It uses geolocation or manual location input to fetch relevant places and display them in a user-friendly interface. Whether you're exploring a new city or looking for local hotspots, TripScout makes discovery seamless.
-Check out the live app: TripScout
-Features
-Automatic Location Detection: Uses browser geolocation or IP-based fallback to identify your location.
+Visit the live application: [TripScout](https://trip-scout.vercel.app/)
 
-Manual Location Input: Enter a city name to explore places anywhere.
+## 📱 Mobile Responsiveness
 
-Categorized Results: Browse hotels/restaurants or fun activities (malls, leisure spots) with category filters.
+TripScout is designed to work seamlessly across all devices:
+- 💻 Desktop browsers
+- 📱 Mobile phones
+- 📟 Tablets
 
-Responsive Design: Clean, modern UI with animations and glassmorphism effects, optimized for mobile and desktop.
+## 🔧 Local Development
 
-Error Handling: Graceful handling of location errors with user-friendly messages.
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- Geoapify API key
 
-Caching: Backend caching with node-cache to optimize API performance.
+### Setting Up the Project
 
-Tech Stack
-Frontend
-React: Component-based UI with hooks (useState, useEffect, etc.).
-
-React Router: For navigation between home and results pages.
-
-Axios: For making API requests to the backend and Nominatim.
-
-Heroicons: For sleek, scalable icons.
-
-Tailwind CSS: For styling with utility-first classes.
-
-Vite: Fast build tool for development and production.
-
-Backend
-Node.js & Express: RESTful API to fetch place data.
-
-Geoapify API: For place search and geocoding.
-
-Winston: Logging for debugging and error tracking.
-
-Node-Cache: In-memory caching to reduce API calls.
-
-CORS: Configured to support development and production environments.
-
-Dotenv: For environment variable management.
-
-Installation
-To run TripScout locally, follow these steps:
-Clone the Repository:
-bash
-
-git clone https://github.com/Skinnyfella/tripscout.git
+1. Clone the repository
+\`\`\`bash
+git clone https://github.com/Skinnyfella/TripScoot.git
 cd tripscout
+\`\`\`
 
-Install Dependencies:
-For the frontend:
-bash
-
-cd client
+2. Install dependencies
+\`\`\`bash
+# Install frontend dependencies
+cd frontend
 npm install
 
-For the backend:
-bash
-
-cd server
+# Install backend dependencies
+cd ../backend
 npm install
+\`\`\`
 
-Set Up Environment Variables:
-Create a .env file in the server directory with:
-env
+3. Environment Setup
 
-GEOAPIFY_API_KEY=your_geoapify_api_key
+Create .env files:
+
+Frontend (.env):
+\`\`\`env
+VITE_API_URL=http://localhost:5000
+\`\`\`
+
+Backend (.env):
+\`\`\`env
+PORT=5000
+GEOAPIFY_API_KEY=your_api_key_here
 NODE_ENV=development
-LOG_LEVEL=info
+\`\`\`
 
-Optionally, create a .env file in the client directory:
-env
+4. Start the development servers
 
-VITE_API_URL=http://localhost:3000
-
-Run the Application:
-Start the backend:
-bash
-
-cd server
-npm start
-
-Start the frontend:
-bash
-
-cd client
+Backend:
+\`\`\`bash
+cd backend
 npm run dev
+\`\`\`
 
-Open http://localhost:5173 in your browser.
+Frontend:
+\`\`\`bash
+cd frontend
+npm run dev
+\`\`\`
 
-Usage
-Home Page:
-Allow location access for automatic detection or enter a city name manually.
+## 🔒 Security Features
 
-Click "Select Location" to proceed.
+- ⚔️ CORS protection
+- 🛡️ Helmet security headers
+- 🚫 Rate limiting
+- 📝 Request logging
+- 🔐 Environment variable protection
 
-Results Page:
-Toggle between "Hotels & Restaurants" and "Fun Activities".
+## 🌟 Key Features in Detail
 
-Filter by specific categories (e.g., hotels, restaurants, malls, activities).
+### Location Detection
+- Automatic GPS location detection
+- Fallback to IP-based location
+- Manual location search option
 
-View place names, addresses, and types in a clean, card-based layout.
+### Place Discovery
+- Comprehensive hotel listings
+- Local restaurant discovery
+- Entertainment venue search
+- Shopping mall locations
 
-Error Handling:
-If location detection fails, you'll see a prompt to try again or enter a location manually.
+### User Experience
+- Intuitive search interface
+- Fast loading times
+- Smooth animations
+- Responsive design
+- Error handling
 
-API Integration
-TripScout uses:
-Nominatim (OpenStreetMap): For geocoding city names and reverse geocoding coordinates.
+## 👤 Author
 
-Geoapify: For fetching place data within a 10km radius of the user's location.
+- GitHub: [@Skinnyfella](https://github.com/Skinnyfella)
+- Live Demo: [TripScout](https://trip-scout.vercel.app/)
 
-Custom Backend: Handles API requests, caching, and error logging.
+## 📄 License
 
-To use the Geoapify API, sign up at Geoapify to get an API key.
-Contributing
-Contributions are welcome! To contribute:
-Fork the repository.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Create a feature branch (git checkout -b feature/your-feature).
+## 🙏 Acknowledgments
 
-Commit your changes (git commit -m "Add your feature").
-
-Push to the branch (git push origin feature/your-feature).
-
-Open a pull request.
-
-Please ensure your code follows the existing style and includes tests where applicable.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-Contact
-Built by Skinnyfella.
-Reach out via GitHub Issues or email for questions or feedback.
-
+- [Geoapify](https://www.geoapify.com/) - Location and places data
+- [Vercel](https://vercel.com/) - Hosting platform
+- [Render](https://render.com/) - Backend hosting
+- [OpenStreetMap](https://www.openstreetmap.org/) - Geocoding service
